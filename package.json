@@ -1,0 +1,32 @@
+{
+  "name": "express-middlewrap",
+  "version": "1.0.0",
+  "description": "Turn any function, including async, into express middleware, and use any express middleware as a function.",
+  "main": "src/index.js",
+  "directories": {
+    "src": "src",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "ava test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/literalsands/express-middlewrap.git"
+  },
+  "keywords": [
+    "express",
+    "promise",
+    "async",
+    "middleware"
+  ],
+  "author": "literalsands@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/literalsands/express-middlewrap/issues"
+  },
+  "homepage": "https://github.com/literalsands/express-middlewrap#readme",
+  "devDependencies": {
+    "ava": "^4.1.0"
+  }
+}
