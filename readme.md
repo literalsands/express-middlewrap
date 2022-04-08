@@ -17,10 +17,14 @@ __Automatically calls next on function return or promise completion.__
 const mw = require('express-middlewrap');
 
 app.get("/:userId/:docId", [
+    mw((req) => {
+        // Any errors thrown are called with next.
+        checkUserAuth(req.params.userId, req.headers.authorization);
+        // Next called implicitly.
+    })
     // Simple, straight forward use of async/await.
     mw(async (req, res) => {
         // Any errors thrown are called with next.
-        checkUserAuth(req.params.userId, req.headers.authorization);
         await checkUserOwnsDoc(req.params.userId, req.params.docId);
         // Next called implicitly.
     }),
@@ -31,16 +35,6 @@ app.get("/:userId/:docId", [
         docStream.on("end", () => next());
     }
 ]);
-
-mw((req, res) => {
-    console.log("Hello Middleware!");
-});
-
-middleware(req, res, (e) => {
-    console.log("Hello Express!");
-})
-// Hello Middleware!
-// Hello Express!
 ```
 
 ## Limitations
